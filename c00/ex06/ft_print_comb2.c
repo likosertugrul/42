@@ -6,7 +6,7 @@
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 04:56:11 by elikos            #+#    #+#             */
-/*   Updated: 2024/01/29 04:57:30 by elikos           ###   ########.fr       */
+/*   Updated: 2024/01/29 11:15:26 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_print_comb2(void)
 			ft_putchar((second % 10) + 48);
 			if (first != 98)
 			{
-				ft_putchar(',');
+				write(1, ", ", 2);
 			}
 			second++;
 		}
