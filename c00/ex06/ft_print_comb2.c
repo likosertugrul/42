@@ -1,54 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 01:31:16 by elikos            #+#    #+#             */
-/*   Updated: 2024/01/29 02:05:54 by elikos           ###   ########.fr       */
+/*   Created: 2024/01/29 04:56:11 by elikos            #+#    #+#             */
+/*   Updated: 2024/01/29 04:57:30 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char a, char b, char c)
+void	ft_putchar(char c)
 {
-	write(1, &a, 1);
-	write(1, &b, 1);
 	write(1, &c, 1);
-	if (!(a == 7 && b == 8 && c == 9))
-	{
-		write(1, ", ", 2);
-	}
 }
 
-void	ft_print_comb(void)
+void	ft_print_comb2(void)
 {
-	int		first;
-	int		second;
-	int		third;
+	int	first;
+	int	second;
 
-	first = 48;
-	while (first <= 55)
+	first = 0;
+	while (first <= 98)
 	{
-		second = first +1;
-		while (first <= 56)
+		second = first + 1;
+		while (second <= 99)
 		{
-			third = first + 1;
-			while (first <= 57)
+			ft_putchar((first / 10) + 48);
+			ft_putchar((first % 10) + 48);
+			ft_putchar(' ');
+			ft_putchar((first / 10) + 48);
+			ft_putchar((second % 10) + 48);
+			if (first != 98)
 			{
-				ft_putchar(first, second, third);
-				third++;
+				ft_putchar(',');
 			}
 			second++;
 		}
 		first++;
 	}
-}
-
-int	main(void)
-{
-	ft_print_comb();
-	return (0);
 }
