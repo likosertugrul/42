@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/05 02:50:13 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/06 13:45:51 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == 0)
+	while (src[i] != 0)
 	{
-		return (1);
-	}
-	while (str[i] != 0)
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-		{
-			return (0);
-		}
+		dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	dest[i] = 0;
+	return (dest);
 }

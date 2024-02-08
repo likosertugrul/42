@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/05 04:40:30 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/06 14:08:55 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_str_is_lowercase(char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ int	ft_str_is_printable(char *str)
 	}
 	while (str[i] != 0)
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
+		if (!(str[i] >= 97 && str[i] <= 122))
 		{
 			return (0);
 		}

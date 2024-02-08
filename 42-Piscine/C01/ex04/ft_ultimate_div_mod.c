@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/03 18:28:41 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/03 18:29:24 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
-{
-	int	i;
+#include <unistd.h>
+#include <stdio.h>
 
-	i = 0;
-	if (str[i] == 0)
-	{
-		return (1);
-	}
-	while (str[i] != 0)
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+void	ft_ultimate_div_mod(int *a, int *b)
+{
+	int	div;
+	int	mod;
+
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
+}
+
+int	main(void)
+{
+	int	first;
+	int	second;
+
+	first = 217;
+	second = 10;
+	printf("first is %d, second is %d ", first, second);
+	ft_ultimate_div_mod(&first, &second);
+	printf("div is %d, mod is %d ", first, second);
 }

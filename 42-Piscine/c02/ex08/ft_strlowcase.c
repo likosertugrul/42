@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/05 04:52:27 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/06 14:13:37 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == 0)
-	{
-		return (1);
-	}
 	while (str[i] != 0)
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
+		if (str[i] >= 65 && str[i] <= 90)
 		{
-			return (0);
+			str[i] = str[i] + 32;
 		}
 		i++;
 	}
-	return (1);
+	return (str);
 }

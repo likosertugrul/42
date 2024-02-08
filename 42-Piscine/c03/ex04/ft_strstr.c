@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/08 01:29:09 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/08 01:54:27 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	if (str[i] == 0)
+	j = 0;
+	if (to_find[0] == '\0')
 	{
-		return (1);
+		return (str);
 	}
-	while (str[i] != 0)
+	while (str[i] != '\0')
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
+		while (str[i + j] == to_find[j])
 		{
-			return (0);
+			if (to_find[j +1] == '\0')
+			{
+				return (&str[i]);
+			}
+			j++;
 		}
+		j = 0;
 		i++;
 	}
-	return (1);
+	return (0);
 }

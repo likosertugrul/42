@@ -1,26 +1,31 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 04:41:47 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/06 17:19:30 by elikos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_str_is_upppercase(char *str)
+int	ft_str_is_uppercase(char *str)
 {
-    int i = 0;
-    while (str[i] != 0)
-    {
-        if (!(str[i] >= 65 && str[i] <= 90))
-        {
-            return 0;
-        }
-        i++;
-    }
-    return 1;
-}
+	int	i;
 
-
-int main(void)
-{
-    char name[] = "KJJKHJK";
-    char surname[] = "safLKJKLsa";
-
-    printf("%s, %s \n", name, surname);
-    printf("%d, %d", ft_str_is_upppercase(name), ft_str_is_upppercase(surname));
+	i = 0;
+	if (str[i] == 0)
+	{
+		return (1);
+	}
+	while (str[i] != 0)
+	{
+		if (!((str[i] >= 65) && (str[i] <= 90)))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

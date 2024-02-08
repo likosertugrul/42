@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/03 18:31:58 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/03 23:14:38 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+#include <unistd.h>
+#include <stdio.h>
+
+int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	if (str[i] == 0)
-	{
-		return (1);
-	}
 	while (str[i] != 0)
 	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-		{
-			return (0);
-		}
 		i++;
 	}
-	return (1);
+	return (i);
 }

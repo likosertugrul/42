@@ -1,25 +1,31 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 03:01:52 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/06 14:08:17 by elikos           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_str_is_numeric(char *str)
+int	ft_str_is_numeric(char *str)
 {
-    int i = 0;
-    while (str[i] != 0)
-    {
-        if (!(str[i]  >= 48 && str[i] <= 57))
-        {
-            return 0;
-        }
-        i++;
-    }
-    return 1;
-}
+	int	i;
 
-int main (void)
-{
-    char name[] = "987897";
-    char surname[] = "76slikos";
-
-    printf("%s, %s \n", name, surname);
-    printf("%d, %d",ft_str_is_numeric(name), ft_str_is_numeric(surname));
+	i = 0;
+	if (str[i] == 0)
+	{
+		return (1);
+	}
+	while (str[i] != 0)
+	{
+		if (!(str[i] >= 48 && str[i] <= 57))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

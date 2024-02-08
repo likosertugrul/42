@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 04:42:43 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/06 17:23:23 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/08 02:19:17 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/08 04:52:33 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_atoi(char *str)
 {
+	int	sign;
+	int	res;
 	int	i;
 
+	res = 0;
+	sign = 1;
 	i = 0;
-	if (str[i] == 0)
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		return (1);
-	}
-	while (str[i] != 0)
-	{
-		if (!(str[i] >= 32 && str[i] <= 126))
-		{
-			return (0);
-		}
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	return (1);
+	while (str[i] >= 48 && str[i] <= 57)
+	{
+		res = (str[i] - 48) + (res * 10);
+		i ++;
+	}
+	i++;
+	return (res * sign);
 }
