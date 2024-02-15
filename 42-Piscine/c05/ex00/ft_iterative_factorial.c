@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/08 11:44:55 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/08 14:00:09 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	result;
 
-	i = 0;
-	while (str[i] != 0)
+	result = 1;
+	if (nb < 0)
 	{
-		i++;
+		return (0);
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int				length;
-	unsigned int	i;
-
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
+	else if (nb == 0 || nb == 1)
 	{
-		return (dest);
+		return (1);
 	}
-	while ((src[i] != 0) && (i < nb))
+	else
 	{
-		dest[length + i] = src[i];
-		i++;
+		while (nb > 1)
+		{
+			result = result * nb;
+			nb--;
+		}
 	}
-	dest[length + i] = 0;
-	return (dest);
+	return (result);
 }

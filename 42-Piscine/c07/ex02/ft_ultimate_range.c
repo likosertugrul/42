@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/14 02:52:27 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/15 17:13:08 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stdlib.h>
+
+int	ft_ultimate_range(int **range, int min, int max)
 {
+	int	len;
 	int	i;
 
-	i = 0;
-	while (str[i] != 0)
+	if (min >= max)
 	{
+		*range = NULL;
+		return (0);
+	}
+	i = 0;
+	len = max - min;
+	range[0] = (int *)malloc(len * sizeof(int) + 1);
+	if (!*range)
+		return (-1);
+	while (min < max)
+	{
+		range[0][i] = min ;
+		min++;
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int				length;
-	unsigned int	i;
-
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
-	{
-		return (dest);
-	}
-	while ((src[i] != 0) && (i < nb))
-	{
-		dest[length + i] = src[i];
-		i++;
-	}
-	dest[length + i] = 0;
-	return (dest);
+	return (len);
 }

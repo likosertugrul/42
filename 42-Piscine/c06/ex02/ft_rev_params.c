@@ -1,43 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/10 18:28:57 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/11 20:00:22 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != 0)
 	{
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (i);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	main(int argc, char *argv[])
 {
-	int				length;
-	unsigned int	i;
+	int	i;
 
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
+	i = argc - 1;
+	while (i > 0)
 	{
-		return (dest);
+		ft_putstr(argv[i]);
+		ft_putchar('\n');
+		i--;
 	}
-	while ((src[i] != 0) && (i < nb))
-	{
-		dest[length + i] = src[i];
-		i++;
-	}
-	dest[length + i] = 0;
-	return (dest);
+	return (0);
 }

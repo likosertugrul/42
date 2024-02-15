@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/10 21:11:40 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/10 21:13:06 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != 0)
+	i = 2;
+	if (nb <= 1)
 	{
+		return (0);
+	}
+	while (i < nb)
+	{
+		if (nb % i == 0)
+		{
+			return (0);
+		}
 		i++;
 	}
-	return (i);
+	return (1);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	ft_find_next_prime(int nb)
 {
-	int				length;
-	unsigned int	i;
+	int	i;
 
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
+	i = 2;
+	if (nb <= 2)
 	{
-		return (dest);
+		return (2);
 	}
-	while ((src[i] != 0) && (i < nb))
+	while (ft_is_prime(nb) == 0)
 	{
-		dest[length + i] = src[i];
-		i++;
+		nb++;
 	}
-	dest[length + i] = 0;
-	return (dest);
+	return (nb);
 }

@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/10 01:41:01 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/10 01:52:57 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_fibonacci(int index)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != 0)
+	if (index < 0)
 	{
-		i++;
+		return (-1);
 	}
-	return (i);
-}
-
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
-{
-	int				length;
-	unsigned int	i;
-
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
+	if (index < 2)
 	{
-		return (dest);
+		return (index);
 	}
-	while ((src[i] != 0) && (i < nb))
-	{
-		dest[length + i] = src[i];
-		i++;
-	}
-	dest[length + i] = 0;
-	return (dest);
+	return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
 }

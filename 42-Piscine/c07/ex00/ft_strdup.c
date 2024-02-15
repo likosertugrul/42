@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/13 04:02:06 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/15 17:09:30 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stdlib.h>
+
+int	lenplus(char *str)
 {
 	int	i;
 
@@ -19,25 +21,25 @@ int	ft_strlen(char *str)
 	{
 		i++;
 	}
-	return (i);
+	return (i + 1);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strdup(char *src)
 {
-	int				length;
-	unsigned int	i;
+	int		i;
+	char	*c;
 
-	length = ft_strlen(dest);
 	i = 0;
-	if (nb < 1)
+	c = (char *)malloc(lenplus(src) * sizeof(char));
+	if (!c)
 	{
-		return (dest);
+		return (0);
 	}
-	while ((src[i] != 0) && (i < nb))
+	while (src[i] != 0)
 	{
-		dest[length + i] = src[i];
+		c[i] = src[i];
 		i++;
 	}
-	dest[length + i] = 0;
-	return (dest);
+	c[i] = 0;
+	return (c);
 }

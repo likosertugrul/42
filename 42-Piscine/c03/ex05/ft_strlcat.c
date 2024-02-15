@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/12 04:27:31 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/12 04:28:01 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,36 @@ int	ft_strlen(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (str[i] != '\0')
 	{
 		i++;
 	}
 	return (i);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int				length;
 	unsigned int	i;
+	unsigned int	j;
+	unsigned int	dlen;
+	unsigned int	slen;
 
-	length = ft_strlen(dest);
 	i = 0;
-	if (nb < 1)
+	j = 0;
+	while (dest[j] != '\0')
 	{
-		return (dest);
+		j++;
 	}
-	while ((src[i] != 0) && (i < nb))
+	dlen = j;
+	slen = ft_strlen(src);
+	if (size == 0 || size <= dlen)
+		return (slen + size);
+	while (src [i] != '\0' && i < size - dlen - 1)
 	{
-		dest[length + i] = src[i];
+		dest[j] = src[i];
 		i++;
+		j++;
 	}
-	dest[length + i] = 0;
-	return (dest);
+	dest[j] = '\0';
+	return (dlen + slen);
 }

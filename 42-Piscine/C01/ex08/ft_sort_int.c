@@ -6,12 +6,9 @@
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:41:45 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/03 23:17:34 by elikos           ###   ########.fr       */
+/*   Updated: 2024/02/15 23:28:37 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
 
 void	ft_sort_int(int *tab, int size)
 {

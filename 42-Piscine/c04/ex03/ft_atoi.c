@@ -6,7 +6,7 @@
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 02:19:17 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/08 04:52:33 by elikos           ###   ########.fr       */
+/*   Updated: 2024/02/15 02:42:07 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,11 @@ int	ft_atoi(char *str)
 	}
 	i++;
 	return (res * sign);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+	printf("%d", ft_atoi("      ---+--+957++--"))
 }

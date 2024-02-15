@@ -6,12 +6,9 @@
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:31:58 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/03 23:14:38 by elikos           ###   ########.fr       */
+/*   Updated: 2024/02/15 23:28:28 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
 
 int	ft_strlen(char *str)
 {

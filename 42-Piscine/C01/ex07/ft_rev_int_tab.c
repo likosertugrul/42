@@ -6,12 +6,9 @@
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 18:39:05 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/03 23:17:15 by elikos           ###   ########.fr       */
+/*   Updated: 2024/02/15 23:28:33 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdio.h>
 
 void	ft_rev_int_tab(int *tab, int size)
 {

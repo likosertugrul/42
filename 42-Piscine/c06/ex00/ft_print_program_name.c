@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elikos <elikos@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/06 17:46:28 by elikos            #+#    #+#             */
-/*   Updated: 2024/02/15 00:54:05 by elikos           ###   ########.fr       */
+/*   Created: 2024/02/10 17:49:56 by elikos            #+#    #+#             */
+/*   Updated: 2024/02/10 18:32:28 by elikos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != 0)
 	{
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (i);
 }
 
-char	*ft_strncat(char *dest, char *src, unsigned int nb)
+int	main(int argc, char *argv[])
 {
-	int				length;
-	unsigned int	i;
-
-	length = ft_strlen(dest);
-	i = 0;
-	if (nb < 1)
-	{
-		return (dest);
-	}
-	while ((src[i] != 0) && (i < nb))
-	{
-		dest[length + i] = src[i];
-		i++;
-	}
-	dest[length + i] = 0;
-	return (dest);
+	(void)argc;
+	ft_putstr(argv[0]);
+	ft_putchar('\n');
+	return (0);
 }
